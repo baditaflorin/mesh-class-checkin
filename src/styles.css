@@ -1,6 +1,3 @@
-/* App-local styles. Mesh chrome (settings drawer, self-ref bar) is provided by
- * @baditaflorin/mesh-common/styles.css imported in main.tsx. */
-
 :root {
   color-scheme: dark;
 }
@@ -19,33 +16,215 @@ body,
   background: var(--mesh-bg);
   color: var(--mesh-fg);
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", system-ui, sans-serif;
-  -webkit-tap-highlight-color: transparent;
 }
 
-.feature-placeholder {
-  padding: 6rem 1.5rem 2rem;
-  text-align: center;
+.cls-screen {
+  max-width: 36rem;
+  margin: 0 auto;
+  padding: 4.5rem 1.25rem 6rem;
   display: flex;
   flex-direction: column;
-  align-items: center;
   gap: 1rem;
 }
 
-.feature-placeholder h1 {
+.cls-header h1 {
   font-size: 1.6rem;
-  margin: 0;
+  margin: 0 0 0.25rem;
   color: var(--mesh-accent);
 }
 
-.feature-placeholder p {
-  max-width: 32rem;
+.cls-status {
   margin: 0;
-  opacity: 0.85;
-  line-height: 1.5;
+  opacity: 0.7;
+  font-size: 0.9rem;
+  font-variant-numeric: tabular-nums;
 }
 
-.feature-status {
-  font-size: 0.85rem;
+.cls-meta-display {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 0.6rem;
+  width: 100%;
+  padding: 0.7rem 1rem;
+  background: rgba(255, 255, 255, 0.04);
+  color: var(--mesh-fg);
+  border: 1px dashed rgba(255, 255, 255, 0.18);
+  border-radius: 0.5rem;
+  cursor: pointer;
+}
+
+.cls-meta-display strong {
+  font-size: 1.05rem;
+}
+
+.cls-meta-display span {
   opacity: 0.6;
+  font-size: 0.85rem;
+}
+
+.cls-edit {
+  display: grid;
+  grid-template-columns: 1fr 6rem;
+  gap: 0.4rem;
+}
+
+.cls-edit input {
+  padding: 0.6rem 0.8rem;
+  background: rgba(255, 255, 255, 0.05);
+  color: var(--mesh-fg);
+  border: 1px solid var(--mesh-accent);
+  border-radius: 0.4rem;
+}
+
+.cls-edit button {
+  padding: 0.5rem 0.8rem;
+  background: transparent;
+  color: var(--mesh-fg);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  border-radius: 0.4rem;
+  cursor: pointer;
+}
+
+.cls-form {
+  display: flex;
+  gap: 0.4rem;
+}
+
+.cls-form input {
+  flex: 1;
+  padding: 0.7rem 0.9rem;
+  background: rgba(255, 255, 255, 0.05);
+  color: var(--mesh-fg);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 0.4rem;
+}
+
+.cls-form button {
+  padding: 0.5rem 1.2rem;
+  background: var(--mesh-accent);
+  color: #0e1117;
+  border: none;
+  border-radius: 0.4rem;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+.cls-form button:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+.cls-confirmed {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.85rem 1rem;
+  border-radius: 0.5rem;
+}
+
+.cls-confirmed.cls-checked-in {
+  background: rgba(34, 197, 94, 0.15);
+  border: 1px solid rgba(34, 197, 94, 0.4);
+}
+
+.cls-confirmed.cls-waitlist {
+  background: rgba(245, 158, 11, 0.15);
+  border: 1px solid rgba(245, 158, 11, 0.4);
+}
+
+.cls-undo {
+  background: transparent;
+  color: var(--mesh-fg);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  border-radius: 0.4rem;
+  padding: 0.35rem 0.7rem;
+  cursor: pointer;
+  font-size: 0.85rem;
+}
+
+.cls-section {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+}
+
+.cls-section-title {
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.07em;
+  opacity: 0.6;
+  margin: 0.4rem 0 0.2rem;
+}
+
+.cls-empty {
+  opacity: 0.5;
+  font-style: italic;
+  margin: 0 0 0.4rem;
+}
+
+.cls-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+}
+
+.cls-entry {
+  display: grid;
+  grid-template-columns: 2.5rem 1fr auto;
+  align-items: baseline;
+  gap: 0.6rem;
+  padding: 0.55rem 0.8rem;
+  background: rgba(255, 255, 255, 0.04);
+  border-radius: 0.4rem;
+}
+
+.cls-entry.cls-wait {
+  background: rgba(245, 158, 11, 0.08);
+}
+
+.cls-entry.is-me {
+  background: rgba(34, 197, 94, 0.18);
+  border: 1px solid rgba(34, 197, 94, 0.4);
+}
+
+.cls-entry.cls-wait.is-me {
+  background: rgba(245, 158, 11, 0.2);
+  border: 1px solid rgba(245, 158, 11, 0.4);
+}
+
+.cls-pos {
+  opacity: 0.5;
   font-variant-numeric: tabular-nums;
+  font-size: 0.85rem;
+}
+
+.cls-name {
+  font-weight: 500;
+}
+
+.cls-time {
+  opacity: 0.55;
+  font-size: 0.82rem;
+  font-variant-numeric: tabular-nums;
+}
+
+.cls-export {
+  margin-top: 0.5rem;
+  align-self: center;
+  padding: 0.55rem 1rem;
+  background: transparent;
+  color: var(--mesh-fg);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  border-radius: 0.4rem;
+  cursor: pointer;
+  font-size: 0.9rem;
+}
+
+.cls-export:disabled {
+  opacity: 0.35;
+  cursor: not-allowed;
 }
