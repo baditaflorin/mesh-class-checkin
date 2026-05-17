@@ -1,5 +1,5 @@
 import { useEffect, useMemo, useState } from "react";
-import type { MeshConfig, YRoom } from "@baditaflorin/mesh-common";
+import { MeshNameInput, type MeshConfig, type YRoom } from "@baditaflorin/mesh-common";
 
 type Props = { room: YRoom | null; config: MeshConfig };
 
@@ -159,9 +159,9 @@ function Body({ room, config }: { room: YRoom; config: MeshConfig }) {
             checkIn();
           }}
         >
-          <input
+          <MeshNameInput
             value={name}
-            onChange={(e) => setName(e.target.value)}
+            onChange={setName}
             placeholder="your name"
             autoFocus
             maxLength={48}
