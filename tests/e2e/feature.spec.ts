@@ -35,8 +35,19 @@ test("capacity 1: second check-in lands on waitlist", async ({ browser, baseURL 
     await b.getByPlaceholder("your name").fill("bob");
     await b.getByRole("button", { name: "✓ check in", exact: true }).click();
 
-    await expect(b.locator(".cls-waitlist")).toContainText("waitlist #1");
+    // B's own banner shows it landed on the waitlist (same-peer confirmation).
+    await expect(b.locator(".cls-confirmed.cls-waitlist")).toContainText("waitlist #1");
+
+    // Load-bearing cross-peer assertion: bob's over-capacity check-in must
+    // propagate to A as a real waitlist roster row (the list the instructor
+    // exports), not just bump A's "N waiting" counter. A is the opposite peer
+    // from the one that performed the action.
+    const aWaitSection = a.locator('section[aria-label="waitlist"]');
+    await expect(aWaitSection).toContainText("bob");
+    await expect(aWaitSection.locator(".cls-entry.cls-wait")).toHaveCount(1);
     await expect(a.locator(".cls-status")).toContainText("1 waiting");
+    // alice (in class) stays the single checked-in attendee on B's view too.
+    await expect(b.locator(".cls-status")).toContainText("1/1 in class");
   } finally {
     await cleanup();
   }

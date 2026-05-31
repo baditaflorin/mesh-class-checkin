@@ -1,7 +1,7 @@
 # mesh-class-checkin
 
 [![pages](https://img.shields.io/badge/live-baditaflorin.github.io%2Fmesh-class-checkin-22c55e)](https://baditaflorin.github.io/mesh-class-checkin/)
-[![version](https://img.shields.io/badge/version-0.1.0-blue)](https://github.com/baditaflorin/mesh-class-checkin/blob/main/package.json)
+[![version](https://img.shields.io/badge/version-0.1.1-blue)](https://github.com/baditaflorin/mesh-class-checkin/blob/main/package.json)
 [![license](https://img.shields.io/badge/license-MIT-green)](./LICENSE)
 
 > Fitness class check-in with auto-waitlist when class fills, no account, mesh-synced
